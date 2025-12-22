@@ -1,0 +1,64 @@
+[[apps]]
+name = "curl"
+
+[apps.command]
+path = "curl"
+name = "curl"
+mode = "hidden"
+output = "dialog"
+debug = true
+
+[[apps.items]]
+label = "URL"
+name = "url"
+type = "string"
+positional = true
+
+[[apps.items]]
+label = "Method (-X)"
+name = "X"
+short = true
+type = "choice"
+choices = ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"]
+separator = " "
+
+[[apps.items]]
+label = "Headers (-H)"
+name = "H"
+short = true
+type = "string"
+multi = true
+separator = " "
+
+[[apps.items]]
+label = "Data (-d)"
+name = "d"
+short = true
+type = "string"
+separator = " "
+
+[[apps.items]]
+label = "Output (-o)"
+name = "o"
+short = true
+type = "string"
+picker = "file"
+separator = " "
+
+[[apps.items]]
+label = "Follow Redirects (-L)"
+name = "L"
+short = true
+type = "bool"
+
+[[apps.items]]
+label = "Verbose (-v)"
+name = "v"
+short = true
+type = "bool"
+
+[[apps.items]]
+label = "Insecure (-k)"
+name = "k"
+short = true
+type = "bool"

@@ -1,0 +1,148 @@
+title = "FFmpeg Tools"
+width = 600
+height = 500
+
+[[apps]]
+[apps.command]
+path = "ffmpeg"
+name = "Video Transcode"
+args = ["-y"]
+mode = "hidden"
+debug = true
+output = "realtime"
+
+[[apps.items]]
+name = "i"
+type = "string"
+label = "Input File"
+picker = "file"
+short = true
+separator = " "
+
+[[apps.items]]
+name = "c:v"
+type = "choice"
+label = "Video Codec"
+choices = ["libx264", "libx265", "copy", "vp9"]
+separator = " "
+short = true
+
+[[apps.items]]
+name = "c:a"
+type = "choice"
+label = "Audio Codec"
+choices = ["aac", "mp3", "copy", "opus"]
+separator = " "
+short = true
+
+[[apps.items]]
+name = "crf"
+type = "number"
+label = "Quality (CRF)"
+description = "0-51, lower is better, recommended 18-28"
+default = 23
+separator = " "
+short = true
+
+[[apps.items]]
+name = "output"
+type = "string"
+label = "Output File"
+picker = "file"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "ffmpeg"
+name = "Extract Audio"
+args = ["-y", "-vn"]
+mode = "hidden"
+debug = true
+output = "realtime"
+
+[[apps.items]]
+name = "i"
+type = "string"
+label = "Input Video"
+picker = "file"
+short = true
+separator = " "
+
+[[apps.items]]
+name = "c:a"
+type = "choice"
+label = "Audio Format"
+choices = ["mp3", "aac", "flac", "wav"]
+separator = " "
+short = true
+
+[[apps.items]]
+name = "output"
+type = "string"
+label = "Output File"
+picker = "file"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "ffmpeg"
+name = "Video Trim"
+args = ["-y"]
+mode = "hidden"
+debug = true
+output = "realtime"
+
+[[apps.items]]
+name = "i"
+type = "string"
+label = "Input File"
+picker = "file"
+short = true
+separator = " "
+
+[[apps.items]]
+name = "ss"
+type = "string"
+label = "Start Time"
+description = "Format: HH:MM:SS or seconds"
+separator = " "
+short = true
+
+[[apps.items]]
+name = "t"
+type = "string"
+label = "Duration"
+description = "Format: HH:MM:SS or seconds"
+separator = " "
+short = true
+
+[[apps.items]]
+name = "c"
+type = "choice"
+label = "Codec"
+choices = ["copy", "libx264"]
+separator = " "
+short = true
+
+[[apps.items]]
+name = "output"
+type = "string"
+label = "Output File"
+picker = "file"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "ffprobe"
+name = "Media Info"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "file"
+type = "string"
+label = "Media File"
+picker = "file"
+positional = true

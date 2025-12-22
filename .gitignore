@@ -1,0 +1,30 @@
+# Binaries
+cliface
+cliface.exe
+cliface-windows-amd64.exe
+cliface-darwin-amd64
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build output
+/build/
+
+# Test binary
+*.test
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+config.toml

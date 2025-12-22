@@ -1,0 +1,127 @@
+title = "Linux Tools"
+width = 500
+height = 400
+
+[[apps]]
+[apps.command]
+path = "ping"
+name = "Ping"
+args = []
+mode = "hidden"
+debug = true
+output = "realtime"
+
+[[apps.items]]
+name = "c"
+type = "number"
+label = "Count"
+default = 5
+short = true
+separator = " "
+
+[[apps.items]]
+name = "host"
+type = "string"
+label = "Host"
+default = "127.0.0.1"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "df"
+name = "Disk Space"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "h"
+type = "bool"
+label = "Human Readable"
+short = true
+default = true
+
+[[apps]]
+[apps.command]
+path = "free"
+name = "Memory Usage"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "h"
+type = "bool"
+label = "Human Readable"
+short = true
+default = true
+
+[[apps]]
+[apps.command]
+path = "tar"
+name = "Compress Files"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "c"
+type = "bool"
+label = "Create"
+short = true
+default = true
+
+[[apps.items]]
+name = "z"
+type = "bool"
+label = "Gzip Compression"
+short = true
+default = true
+
+[[apps.items]]
+name = "v"
+type = "bool"
+label = "Verbose"
+short = true
+
+[[apps.items]]
+name = "f"
+type = "string"
+label = "Output File"
+short = true
+picker = "file"
+separator = " "
+
+[[apps.items]]
+name = "source"
+type = "string"
+label = "Source Directory"
+picker = "directory"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "find"
+name = "Find Files"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "path"
+type = "string"
+label = "Search Path"
+picker = "directory"
+default = "."
+positional = true
+
+[[apps.items]]
+name = "name"
+type = "string"
+label = "File Name"
+default = "*.txt"
+separator = " "

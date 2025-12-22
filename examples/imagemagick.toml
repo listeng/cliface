@@ -1,0 +1,140 @@
+title = "ImageMagick Tools"
+width = 550
+height = 450
+
+[[apps]]
+[apps.command]
+path = "convert"
+name = "Format Convert"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "input"
+type = "string"
+label = "Input Image"
+picker = "file"
+positional = true
+
+[[apps.items]]
+name = "output"
+type = "string"
+label = "Output Image"
+picker = "file"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "convert"
+name = "Resize"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "input"
+type = "string"
+label = "Input Image"
+picker = "file"
+positional = true
+
+[[apps.items]]
+name = "resize"
+type = "string"
+label = "Size"
+description = "e.g. 800x600, 50%, 800x (keep ratio)"
+separator = " "
+
+[[apps.items]]
+name = "output"
+type = "string"
+label = "Output Image"
+picker = "file"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "convert"
+name = "Compress"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "input"
+type = "string"
+label = "Input Image"
+picker = "file"
+positional = true
+
+[[apps.items]]
+name = "quality"
+type = "number"
+label = "Quality"
+description = "1-100, recommended 75-85"
+default = 85
+separator = " "
+
+[[apps.items]]
+name = "output"
+type = "string"
+label = "Output Image"
+picker = "file"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "convert"
+name = "Add Watermark"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "input"
+type = "string"
+label = "Input Image"
+picker = "file"
+positional = true
+
+[[apps.items]]
+name = "gravity"
+type = "choice"
+label = "Position"
+choices = ["SouthEast", "SouthWest", "NorthEast", "NorthWest", "Center"]
+separator = " "
+
+[[apps.items]]
+name = "annotate"
+type = "string"
+label = "Watermark Text"
+description = "Format: +X+Y text"
+separator = " "
+
+[[apps.items]]
+name = "output"
+type = "string"
+label = "Output Image"
+picker = "file"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "identify"
+name = "Image Info"
+args = ["-verbose"]
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "file"
+type = "string"
+label = "Image File"
+picker = "file"
+positional = true

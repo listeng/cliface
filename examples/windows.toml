@@ -1,0 +1,120 @@
+title = "Windows Tools"
+width = 500
+height = 400
+
+[[apps]]
+[apps.command]
+path = "ping"
+name = "Ping"
+args = []
+mode = "hidden"
+debug = true
+output = "realtime"
+
+[[apps.items]]
+name = "n"
+type = "number"
+label = "Count"
+default = 5
+short = true
+separator = " "
+
+[[apps.items]]
+name = "host"
+type = "string"
+label = "Host"
+default = "127.0.0.1"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "ipconfig"
+name = "IP Config"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "all"
+type = "bool"
+label = "Detailed Info"
+
+[[apps]]
+[apps.command]
+path = "systeminfo"
+name = "System Info"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+text = "Display detailed computer configuration"
+
+[[apps]]
+[apps.command]
+path = "tasklist"
+name = "Process List"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "v"
+type = "bool"
+label = "Verbose Mode"
+short = true
+
+[[apps.items]]
+name = "fi"
+type = "string"
+label = "Filter"
+description = "e.g. STATUS eq RUNNING"
+short = true
+separator = " "
+
+[[apps]]
+[apps.command]
+path = "netstat"
+name = "Network Connections"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "a"
+type = "bool"
+label = "All Connections"
+short = true
+default = true
+
+[[apps.items]]
+name = "n"
+type = "bool"
+label = "Numeric Format"
+short = true
+default = true
+
+[[apps.items]]
+name = "o"
+type = "bool"
+label = "Show PID"
+short = true
+
+[[apps]]
+[apps.command]
+path = "notepad"
+name = "Notepad"
+args = []
+mode = "visible"
+debug = true
+
+[[apps.items]]
+name = "file"
+type = "string"
+label = "File"
+picker = "file"
+positional = true

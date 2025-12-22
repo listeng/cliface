@@ -1,0 +1,100 @@
+title = "macOS Tools"
+width = 500
+height = 400
+
+[[apps]]
+[apps.command]
+path = "ping"
+name = "Ping"
+args = []
+mode = "hidden"
+debug = true
+output = "realtime"
+
+[[apps.items]]
+name = "c"
+type = "number"
+label = "Count"
+default = 5
+short = true
+separator = " "
+
+[[apps.items]]
+name = "host"
+type = "string"
+label = "Host"
+default = "127.0.0.1"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "diskutil"
+name = "Disk Info"
+args = ["list"]
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+text = "Display all disk partition information"
+
+[[apps]]
+[apps.command]
+path = "open"
+name = "Open App"
+args = ["-a"]
+mode = "visible"
+debug = true
+
+[[apps.items]]
+name = "app"
+type = "choice"
+label = "Application"
+choices = ["Calculator", "TextEdit", "Preview", "Safari", "Terminal"]
+positional = true
+
+[[apps]]
+[apps.command]
+path = "say"
+name = "Text to Speech"
+args = []
+mode = "visible"
+debug = true
+
+[[apps.items]]
+name = "v"
+type = "choice"
+label = "Voice"
+choices = ["Alex", "Samantha", "Victoria"]
+short = true
+separator = " "
+
+[[apps.items]]
+name = "text"
+type = "string"
+label = "Text"
+default = "Hello World"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "screencapture"
+name = "Screenshot"
+args = []
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "i"
+type = "bool"
+label = "Interactive Mode"
+short = true
+
+[[apps.items]]
+name = "file"
+type = "string"
+label = "Save Path"
+picker = "file"
+default = "~/Desktop/screenshot.png"
+positional = true

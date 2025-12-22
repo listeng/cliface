@@ -1,0 +1,103 @@
+title = "Git Tools"
+width = 500
+height = 400
+
+[[apps]]
+[apps.command]
+path = "git"
+name = "Clone Repository"
+args = ["clone"]
+mode = "hidden"
+debug = true
+output = "realtime"
+
+[[apps.items]]
+name = "depth"
+type = "number"
+label = "Depth"
+description = "Shallow clone depth, leave empty for full clone"
+separator = " "
+
+[[apps.items]]
+name = "branch"
+type = "string"
+label = "Branch"
+short = true
+separator = " "
+
+[[apps.items]]
+name = "url"
+type = "string"
+label = "Repository URL"
+positional = true
+
+[[apps.items]]
+name = "dir"
+type = "string"
+label = "Target Directory"
+picker = "directory"
+positional = true
+
+[[apps]]
+[apps.command]
+path = "git"
+name = "Commit"
+args = ["commit"]
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "a"
+type = "bool"
+label = "Auto Stage"
+short = true
+
+[[apps.items]]
+name = "m"
+type = "string"
+label = "Commit Message"
+short = true
+separator = " "
+
+[[apps]]
+[apps.command]
+path = "git"
+name = "Log"
+args = ["log"]
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "oneline"
+type = "bool"
+label = "One Line"
+
+[[apps.items]]
+name = "graph"
+type = "bool"
+label = "Graph"
+
+[[apps.items]]
+name = "n"
+type = "number"
+label = "Number of Entries"
+default = 10
+short = true
+separator = " "
+
+[[apps]]
+[apps.command]
+path = "git"
+name = "Status"
+args = ["status"]
+mode = "hidden"
+debug = true
+output = "dialog"
+
+[[apps.items]]
+name = "s"
+type = "bool"
+label = "Short Format"
+short = true
