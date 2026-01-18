@@ -14,11 +14,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-latest
+          - os: macos-13
             goos: darwin
             goarch: amd64
             output: cliface-darwin-amd64
-          - os: macos-latest
+          - os: macos-14
             goos: darwin
             goarch: arm64
             output: cliface-darwin-arm64
