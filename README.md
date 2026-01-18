@@ -40,6 +40,7 @@ title = "My Tools"
 width = 500
 height = 400
 
+# Multiple apps create tabs
 [[apps]]
 [apps.command]
 path = "/usr/bin/ffmpeg"
@@ -71,7 +72,14 @@ name = "preset"
 type = "choice"
 label = "Speed"
 choices = ["ultrafast", "fast", "medium", "slow"]
+placeholder = "Select preset"
 default = "medium"
+
+# Second app creates another tab
+[[apps]]
+[apps.command]
+path = "/usr/bin/curl"
+name = "HTTP Request"
 ```
 
 ## Config Reference
@@ -111,6 +119,7 @@ default = "medium"
 | description | Field description |
 | default | Default value |
 | choices | Options for choice type |
+| placeholder | Placeholder text for choice type (e.g., "Select one") |
 | picker | `file` or `directory` picker |
 | picker_text | Custom picker button text |
 | separator | Arg separator: `" "` for space, `"none"` for no separator, default `=` |

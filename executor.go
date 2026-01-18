@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"runtime"
 	"strings"
 
 	"fyne.io/fyne/v2"
@@ -35,7 +36,17 @@ func (u *AppUI) Execute() {
 	}
 
 	if u.app.Command.Mode == "visible" {
-		cmd.Start()
+		if runtime.GOOS == "darwin" {
+			// macOS: 使用 osascript 启动，确保进程独立运行
+			script := u.app.Command.Path + " " + strings.Join(args, " ")
+			exec.Command("osascript", "-e", fmt.Sprintf(`do shell script "%s"`, script)).Start()
+		} else if runtime.GOOS == "windows" {
+			// Windows: 使用 cmd /c start 启动独立进程
+			cmdArgs := append([]string{"/c", "start", "", u.app.Command.Path}, args...)
+			exec.Command("cmd", cmdArgs...).Start()
+		} else {
+			cmd.Start()
+		}
 		return
 	}
 

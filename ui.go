@@ -165,10 +165,14 @@ func (u *AppUI) createWidget(item *Item) fyne.CanvasObject {
 		return check
 	case "choice":
 		sel := widget.NewSelect(item.Choices, nil)
+		if item.Placeholder != "" {
+			sel.PlaceHolder = item.Placeholder
+		}
 		if item.Default != nil {
 			sel.SetSelected(fmt.Sprintf("%v", item.Default))
 		}
-		return sel
+		clearBtn := widget.NewButton("×", func() { sel.ClearSelected() })
+		return container.NewBorder(nil, nil, nil, clearBtn, sel)
 	default:
 		return widget.NewEntry()
 	}
@@ -313,7 +317,15 @@ func (u *AppUI) getWidgetValue(item *Item, w fyne.CanvasObject) string {
 		}
 		return ""
 	case "choice":
-		return w.(*widget.Select).Selected
+		if sel, ok := w.(*widget.Select); ok {
+			return sel.Selected
+		} else if c, ok := w.(*fyne.Container); ok {
+			for _, obj := range c.Objects {
+				if sel, ok := obj.(*widget.Select); ok {
+					return sel.Selected
+				}
+			}
+		}
 	}
 	// trim quotes
 	if len(val) >= 2 {
@@ -565,10 +577,13 @@ func (u *AppUI) setupConditions() {
 		case *widget.Check:
 			wt.OnChanged = func(b bool) { updateFunc() }
 		case *fyne.Container:
-			// picker 类型的 entry
 			for _, obj := range wt.Objects {
 				if entry, ok := obj.(*widget.Entry); ok {
 					entry.OnChanged = func(s string) { updateFunc() }
+					break
+				}
+				if sel, ok := obj.(*widget.Select); ok {
+					sel.OnChanged = func(s string) { updateFunc() }
 					break
 				}
 			}

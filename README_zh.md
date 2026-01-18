@@ -40,6 +40,7 @@ title = "我的工具"
 width = 500
 height = 400
 
+# 多个 apps 会创建多个标签页
 [[apps]]
 [apps.command]
 path = "/usr/bin/ffmpeg"
@@ -71,7 +72,14 @@ name = "preset"
 type = "choice"
 label = "速度"
 choices = ["ultrafast", "fast", "medium", "slow"]
+placeholder = "请选择预设"
 default = "medium"
+
+# 第二个 app 创建另一个标签页
+[[apps]]
+[apps.command]
+path = "/usr/bin/curl"
+name = "HTTP 请求"
 ```
 
 ## 配置说明
@@ -111,6 +119,7 @@ default = "medium"
 | description | 字段说明 |
 | default | 默认值 |
 | choices | choice 类型的选项列表 |
+| placeholder | choice 类型的占位符文本（如"请选择"） |
 | picker | `file` 或 `directory` 选择器 |
 | picker_text | 自定义选择器按钮文字 |
 | separator | 参数分隔符，`" "` 为空格，`"none"` 为无分隔符，默认 `=` |

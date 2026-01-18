@@ -38,6 +38,7 @@ type Item struct {
 	Description string   `toml:"description"`
 	Default     any      `toml:"default"`
 	Choices     []string `toml:"choices"`
+	Placeholder string   `toml:"placeholder"`
 	Picker      string   `toml:"picker"`
 	PickerText  string   `toml:"picker_text"`
 	Separator   string   `toml:"separator"`
